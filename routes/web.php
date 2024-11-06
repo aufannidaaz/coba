@@ -1,25 +1,28 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
+// Dashboard route (now redirects to posts)
 Route::get('/', function () {
-    return view('dashboard');
+    return view('welcome');
 });
 
-//route resource
-Route::resource('/posts', \App\Http\Controllers\PostController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+// Authentication routes
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/posts/download', [PostController::class, 'downloadPDF'])->name('posts.download');
+// Home route (optional if not used)
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
+
+
+
+// Resource route for posts
+Route::resource('/posts', PostController::class)->middleware('auth');

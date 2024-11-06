@@ -35,7 +35,7 @@
                                 </div>
                                 @enderror
                             </div>
-                            < class="form-group">
+                            <div class="form-group">
                                 <label class="font-weight-bold">Nama Mahasiswa</label>
                                 <input type="text" class="form-control @error('nama_mahasiswa') is-invalid @enderror"
                                     name="nama_mahasiswa" value="{{ old('nama_mahasiswa', $post->nama_mahasiswa) }}"
@@ -46,9 +46,10 @@
                                     {{ $message }}
                                 </div>
                                 @enderror
+                            </div>
+                            <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
+                            <button type="reset" class="btn btn-md btn-warning">RESET</button>
                     </div>
-                    <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
-                    <button type="reset" class="btn btn-md btn-warning">RESET</button>
                     </form>
                 </div>
             </div>

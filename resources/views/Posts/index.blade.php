@@ -6,6 +6,7 @@
             <div class="card border-0 shadow rounded">
                 <div class="card-body">
                     <a href="{{ route('posts.create') }}" class="btn btn-md btn-success mb-3">TAMBAH MAHASISWA</a>
+                    <a href="{{ route('posts.download') }}" class="btn btn-md btn-info mb-3">PDF</a>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -19,7 +20,7 @@
                             @forelse ($posts as $post)
                             <tr>
                                 <td class="text-center">
-                                    <img src="{{ Storage::url('public/posts/').$post->foto_mahasiswa }}" class="rounded-circle" style="width: 80px; height: 85px">
+                                    <img src="{{ asset('storage/public/posts/'. $post->foto_mahasiswa) }}"class="rounded-circle" style="width: 80px; height: 85px">
                                 </td>
                                 <td>{{ $post->nim }}</td>
                                 <td>{{ $post->nama_mahasiswa }}</td>
@@ -44,6 +45,7 @@
         </div>
     </div>
 </div>
+@endsection
 <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -52,12 +54,4 @@
 <script
     src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js">
 </script>
-<!-- <script>
-        @if(session()-> has('success'))
-        toastr.success('{{ session('success') }}', 'BERHASIL!');
-        @elseif(session()-> has('error'));
-        toastr.error('{{ session('error') }}', 'Gagal!');
-        @endif
-    </script> -->
 
-@endsection

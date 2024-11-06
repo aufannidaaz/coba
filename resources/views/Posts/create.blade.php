@@ -23,21 +23,20 @@
                                 is-invalid @enderror" name="foto_mahasiswa">
                                 <!-- error message untuk foto mahasiswa -->
                                 @error('foto_mahasiswa')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label class="font-weight-bold">NIM</label>
                                 <input type="text" class="form-control @error('nim') is-invalid
-                                @enderror" name="nim" value="{{ old('nim') }}" placeholder="Masukkan NIM
-Mahasiswa">
+                                @enderror" name="nim" value="{{ old('nim') }}" placeholder="Masukkan NIM Mahasiswa">
                                 <!-- error message untuk nim -->
                                 @error('nim')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                                 @enderror
                             </div>
                             <div class="form-group">
@@ -47,9 +46,9 @@ Mahasiswa">
 Mahasiswa">
                                 <!-- error message untuk nama mahasiswa -->
                                 @error('nama_mahasiswa')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                                 @enderror
                             </div>
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
